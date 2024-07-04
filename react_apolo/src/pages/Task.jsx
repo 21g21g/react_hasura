@@ -1,5 +1,8 @@
 import { gql,useMutation,useQuery } from "@apollo/client"
+// import { useState } from "react"
  const Task = () => {
+   
+
     const {data,loading,error}=useQuery(gql`
     query{
         task{
@@ -11,6 +14,8 @@ import { gql,useMutation,useQuery } from "@apollo/client"
       }
     
     `)
+    // const [search,setSearch]=useState("")
+    // const [searched,setSearched]=useState(data?data.task:[])
     const handleClick=(id)=>{
         console.log(id)
         deleteTodo({variables:{id}})
@@ -26,9 +31,28 @@ import { gql,useMutation,useQuery } from "@apollo/client"
     `)
     if(loading) return <p>loading...</p>
     if(error) return <p>error {error.message}</p>
+    // const handleSearch=(event)=>{
+    //     setSearch(event.target.value)
+    //     const searchterm=search.toLowerCase().trim()
+    //     if(!searchterm){
+    //         setSearched(data.task)
+
+    //     }
+    //     else{
+    //         const see=data.task.filter((datas)=>datas.title.toLowerCase().includes(searchterm))
+    //         console.log(see)
+    //         setSearched(see)
+    //     }
+
+    // }
+
+    // console.log(search)
   return (
-    <div>
-        <table className="w-full border-collapse border">
+    <div className="flex flex-col w-full px-10">
+    {/* <div className="flex self-end">
+        <input className="px-4 py-2 border" type="text" placeholder="search by title"  value={search} />
+    </div> */}
+        <table className="w-full border-collapse border mt-3  ">
             <thead>
                 <tr>
                     <th className="px-4 py-2">Title</th>

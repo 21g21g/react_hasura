@@ -3,6 +3,7 @@
 // import ContinentData from "./component/ContinentData"
 import FormInput from "./component/FormInput"
 import Task from "./pages/Task"
+import ComponentDisplay from "./pages/ComponentDisplay"
 function App() {
 
   return (
@@ -10,6 +11,7 @@ function App() {
       {/* <ContinentData/> */}
       <FormInput/>
       <Task/>
+      <ComponentDisplay/>
     </div>
   )
 }
